@@ -2,11 +2,11 @@
 
 ## Building the ROM yourself
 
-#Download the latest LiquidSmooth Source
+Download the latest LiquidSmooth Source
 	https://github.com/LiquidSmooth
 
-#You will also need the extra tools from adrian-bl-hox-jb repos
-#In the root of the source folder do the following commands one by one -
+You will also need the extra tools from adrian-bl-hox-jb repos
+In the root of the source folder do the following commands one by one -
 
 	rm -rf system/core && git clone git://github.com/adrian-bl-hox-jb/android_system_core -b jb42 system/core
 
@@ -14,11 +14,11 @@
 
 	git clone git://github.com/adrian-bl-hox-jb/android_vendor_htc_endeavoru -b jb vendor/htc/endeavoru
 
-#Now to download this device tree. Use this command -
+Now to download this device tree. Use this command -
 
 	git clone git://github.com/mattmanwrx/android_device_htc_endeavoru -b jb device/htc/endeavoru
 
-#Finally, we need to cherry pick a commit for the camera to work, so use these commands
+Finally, we need to cherry pick a commit for the camera to work, so use these commands
 
 	cd frameworks/native
 	
@@ -28,17 +28,17 @@
 
 	cd ../..
 	
-#That should be it for the tools needed, now lets build.
+That should be it for the tools needed, now lets build.
 
 ## Build:
 
 	. build/envsetup.sh && lunch
 
-#Chose the number that "liquid_endeavoru-userdebug" is on
+Chose the number that "liquid_endeavoru-userdebug" is on
 
 	mka liquid
 
-#This will create a flashable.zip in the out/product/target/endeavoru folder
+This will create a flashable.zip in the out/product/target/endeavoru folder
 
 ## Links
 

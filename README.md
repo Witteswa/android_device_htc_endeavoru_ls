@@ -4,9 +4,10 @@
 
 Download the latest LiquidSmooth Source
 	
-	https://github.com/LiquidSmooth
+	[https://github.com/LiquidSmooth](LiquidSmooth)
 
 You will also need the extra tools from adrian-bl-hox-jb repos
+
 In the root of the source folder do the following commands one by one -
 
 	rm -rf system/core && git clone git://github.com/adrian-bl-hox-jb/android_system_core -b jb42 system/core
@@ -44,7 +45,7 @@ This will create a flashable.zip in the out/product/target/endeavoru folder
 ## Links
 
 * [Thread on XDA](http://forum.xda-developers.com/showthread.php?t=2102878)
-* [mattmanwrx's site](www.mattman.org)
+* [mattmanwrx's site](http://www.mattman.org)
 
 ## Credits
 

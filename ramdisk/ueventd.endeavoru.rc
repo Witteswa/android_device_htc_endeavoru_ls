@@ -59,6 +59,9 @@
 /dev/rfkill               0660   root       wifi
 /dev/block/mmcblk0p1      0660   root       wifi
 
+# torch
+/sys/class/leds/flashlight/brightness  0666  system	system
+
 # BT
 /dev/ttyHS0               0660   bluetooth  bluetooth
 

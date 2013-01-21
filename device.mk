@@ -126,6 +126,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	Stk
 
+# Torch
+PRODUCT_PACKAGES += \
+	Torch
+
 # init.d support
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilt/etc/post-boot.sh:system/etc/post-boot.sh \

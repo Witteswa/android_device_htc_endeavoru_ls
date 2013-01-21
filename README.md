@@ -17,7 +17,7 @@ In the root of the source folder do the following commands one by one -
 
 Now to download this device tree. Use this command -
 
-	git clone git://github.com/mattmanwrx/android_device_htc_endeavoru -b jb device/htc/endeavoru
+	git clone git://github.com/mattmanwrx/android_device_htc_endeavoru_ls -b jb device/htc/endeavoru
 
 Finally, we need to cherry pick a commit for the camera to work, so use these commands
 

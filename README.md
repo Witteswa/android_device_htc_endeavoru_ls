@@ -1,36 +1,51 @@
-# HTC Endeavor (aka One X)
-
-## Installation Instructions
-
-1. Download the latest pre-built version of the ROM from [here](http://mirror.faked.org/cm9/), or build it yourself (see below)
-2. Enter fastboot mode on your phone, and connect it to your computer
-3. Erase your phone's cache with the following command: `fastboot erase cache`
-4. Flash the boot.img from inside the zip file to your phone's partition with the following command: `fastboot flash boot boot.img`
-5. Enter recovery on your phone
-6. Do a nandroid backup of your phone, in case something goes wrong
-7. If you're coming from another ROM, wipe data and wipe cache, otherwise a data wipe may not be necessary.
-8. Flash the zip file you've previously downloaded or built
-
+# HTC Endeavoru (aka One X)
 
 ## Building the ROM yourself
 
-Add the following to your local_manifest.xml:
+#Download the latest LiquidSmooth Source
+	https://github.com/LiquidSmooth
 
-	<project name="intermediaterepresentation/android_kernel_htc_endeavor" path="kernel/htc/endeavor" remote="github" />
-  	<project name="intermediaterepresentation/android_device_htc_endeavor" path="device/htc/endeavoru" remote="github" />
+#You will also need the extra tools from adrian-bl-hox-jb repos
+#In the root of the source folder do the following commands one by one -
 
-Sync:
+	rm -rf system/core && git clone git://github.com/adrian-bl-hox-jb/android_system_core -b jb42 system/core
 
-	repo sync
+	git clone git://github.com/adrian-bl-hox-jb/android_hox_tools hox/tools
 
-Build:
+	git clone git://github.com/adrian-bl-hox-jb/android_vendor_htc_endeavoru -b jb vendor/htc/endeavoru
 
-	add_lunch_combo cm_endeavoru-userdebug
-	lunch cm_endeavoru-userdebug
-	(cd device/htc/endeavoru && ./extract_files.sh)
-	make -j4 otapackage
+#Now to download this device tree. Use this command -
+
+	git clone git://github.com/mattmanwrx/android_device_htc_endeavoru -b jb device/htc/endeavoru
+
+#Finally, we need to cherry pick a commit for the camera to work, so use these commands
+
+	cd frameworks/native
+	
+	git fetch git://github.com/adrian-bl-hox-jb/android_frameworks_native
+	
+	git cherry-pick 9266b89
+
+	cd ../..
+	
+#That should be it for the tools needed, now lets build.
+
+## Build:
+
+	. build/envsetup.sh && lunch
+
+#Chose the number that "liquid_endeavoru-userdebug" is on
+
+	mka liquid
+
+#This will create a flashable.zip in the out/product/target/endeavoru folder
 
 ## Links
 
-* [Discussion thread on XDA](http://forum.xda-developers.com/showthread.php?t=1661629)
-* [Build history](http://faked.org/jenkins)
+* [Thread on XDA](http://forum.xda-developers.com/showthread.php?t=2102878)
+* [mattmanwrx's site](www.mattman.org)
+
+## Credits
+
+* With thanks to the LiquidSmooth team
+* Thanks to pabx from XDA (adrain-bl-hox-jb)
